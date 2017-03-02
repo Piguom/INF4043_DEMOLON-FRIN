@@ -40,4 +40,5 @@ public class Joueur {
 	public String toString(){
 		return this.nomJoueur + " tableau de mots : " + this.monTableauDeMot.toString();
 	}
+	
 }

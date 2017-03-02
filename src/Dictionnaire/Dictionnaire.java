@@ -15,7 +15,7 @@ public class Dictionnaire implements IsWord
 	private String path;
 	
 	public Dictionnaire(){
-		this.path = System.getProperty("user.dir")+"/target/classes/dico.txt";
+		this.path = System.getProperty("user.dir")+"/src/Dictionnaire/dico.txt";
 	}
 	
 	public Dictionnaire(String path){

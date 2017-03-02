@@ -22,16 +22,16 @@ public class Sac {
 	}
 	
 	public boolean testCharIsBetter(char lettre1,char lettre2){
-		PotCommun.comm1 = new JTextArea("\nVous avez tiré la lettre "+lettre1 + " : " + (int)lettre1);
-		PotCommun.comm2 = new JTextArea("\nVous avez tiré la lettre "+lettre2 + " : "  + (int)lettre2);
+		PotCommun.comm1 = new JTextArea("\nVous avez tire la lettre "+lettre1 + " : " + (int)lettre1);
+		PotCommun.comm2 = new JTextArea("\nVous avez tire la lettre "+lettre2 + " : "  + (int)lettre2);
 		//System.out.println("Le joueur 1 tire la lettre "+lettre1 + " : " + (int)lettre1);
 		//System.out.println("Le joueur 2 tire la lettre "+lettre2 + " : "  + (int)lettre2);
 		if((int)lettre1<(int)lettre2){
-			PotCommun.commG = new JTextArea(Lancement.getNameJ1()+" commence !\n");
+			PotCommun.commG = new JTextArea("\n"+Lancement.getNameJ1()+" commence !\n");
 			//System.out.println("Le joueur 1 commence.");
 			return true;
 		}else{
-			PotCommun.commG = new JTextArea(Lancement.getNameJ2()+" commence !");
+			PotCommun.commG = new JTextArea("\n"+Lancement.getNameJ2()+" commence !");
 			return false;
 		}
 			

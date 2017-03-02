@@ -3,9 +3,8 @@ package IA;
 import java.util.ArrayList;
 
 import Dictionnaire.Dictionnaire;
-import Jeu.Jeu;
-import Jeu.Tapis;
 import Joueur.Joueur;
+import Tapis.Tapis;
 
 public class MettreAJourMotIA {
 	
@@ -17,7 +16,7 @@ public class MettreAJourMotIA {
 			  listeDesMots = dico.getAllMotFromBase(mot);
 			  Tapis.addMotToTapis(mot);
 			  for(String nouveauMot : listeDesMots){
-				  if(dico.motValide(Jeu.tapis,nouveauMot) && dico.isWord(nouveauMot)){
+				  if(dico.motValide(Tapis.tapis,nouveauMot) && dico.isWord(nouveauMot)){
 					  Tapis.removeMotToTapis(mot);
 					  joueurAdverse.getMontableauDeMot().remove(mot);
 					  return nouveauMot;

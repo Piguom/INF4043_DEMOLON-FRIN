@@ -1,6 +1,16 @@
-D:\workspaceESIEA\LetterGameV2\src\main\java\fr\esiea\unique\binome\name\dictionary\Dictionnaire.java
-D:\workspaceESIEA\LetterGameV2\src\main\java\fr\esiea\unique\binome\name\dictionary\IDictionary.java
-D:\workspaceESIEA\LetterGameV2\src\main\java\fr\esiea\unique\binome\name\dictionary\Joueur.java
-D:\workspaceESIEA\LetterGameV2\src\main\java\fr\esiea\unique\binome\name\dictionary\Jeu.java
-D:\workspaceESIEA\LetterGameV2\src\main\java\fr\esiea\unique\binome\name\dictionary\Main.java
-D:\workspaceESIEA\LetterGameV2\src\main\java\fr\esiea\unique\binome\name\dictionary\Sac.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\Jeu\Jeu.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\Plateforme\Lancement.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\Plateforme\PotCommun.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\Jeu\Tapis.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\Joueur\TourSuivant.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\Dictionnaire\IsWord.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\Dictionnaire\Dictionnaire.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\Joueur\Joueur.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\IA\TourSuivantIA.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\Sac\Sac.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\IA\CreerNouveauMotIA.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\IA\MettreAJourMotIA.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\Jeu\FinDuJeu.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\Plateforme\Popup.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\Jeu\Mot.java
+C:\Users\piguo\Documents\ESIEA-4ACFA 2016-2017\LetterGame\JeuDeLettre\src\Jeu\Saisie.java
