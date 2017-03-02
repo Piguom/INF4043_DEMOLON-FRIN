@@ -1,5 +1,6 @@
 package Jeu;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -41,7 +42,7 @@ public class Start {
 		//tourUnvUn = new Tour1vs1();
 	}
 	
-	public void initialisation(String joueur1, String joueur2){
+	public void initialisation(String joueur1, String joueur2) throws IOException{
 		this.joueur1 = joueur1;
 		this.joueur2 = joueur2;
 		
@@ -83,7 +84,7 @@ public class Start {
 		}		  
 	}
 	
-	public void jeuCommence(){
+	public void jeuCommence() throws IOException{
 		potCommun = new PotCommun(joueur1, joueur2);
 		potCommun.DefaultFrame();
 		

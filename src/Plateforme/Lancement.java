@@ -1,17 +1,16 @@
 package Plateforme;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -39,6 +38,7 @@ public class Lancement extends JFrame {
 	static JLabel pseudo1,pseudo2;
 	static String nom1, nom2;
 	static PotCommun potCommun;
+	static BackGroundImage bckImage = new BackGroundImage();
 
 	public static void DefaultFrame() throws IOException{
 		frame.setTitle("Jeu de Lettre");
@@ -54,7 +54,7 @@ public class Lancement extends JFrame {
 	
 	public static void ChoixJoueur() throws IOException{
 
-		panel = setBackgroundImage(frame, new File("src/picture.jpg"));
+		panel = bckImage.setBackgroundImage(frame, new File("src/picture.jpg"));
 		panel.setLayout(null);
 		panel.setPreferredSize(new Dimension(600,400));
 		
@@ -72,6 +72,12 @@ public class Lancement extends JFrame {
 		pseudo1 = new JLabel("Joueur 1 :");
 		pseudo2 = new JLabel("Joueur 2 :");
 		
+		pseudo1.setFont(new Font("Serif", Font.BOLD, 20));
+		pseudo2.setFont(new Font("Serif", Font.BOLD, 20));
+		
+		pseudo1.setForeground(Color.WHITE);
+		pseudo2.setForeground(Color.WHITE);
+		
 		j1.add(pseudo1);
 		j1.add(joueur1);
 		j1.setOpaque(false);
@@ -85,8 +91,8 @@ public class Lancement extends JFrame {
 		panel.add(j2);
 		panel.add(b1);
 		
-		panel.getComponent(0).setBounds(100,150,150,30); 
-		panel.getComponent(1).setBounds(290,150,150,30); 
+		panel.getComponent(0).setBounds(100,150,200,30); 
+		panel.getComponent(1).setBounds(290,150,200,30); 
 		panel.getComponent(2).setBounds(250,200,100,30); 
 		
 		frame.setContentPane(panel);
@@ -96,20 +102,6 @@ public class Lancement extends JFrame {
 	
 	public static String getNameJ2(){return nom2;}
 	
-	public static JPanel setBackgroundImage(JFrame frame, final File img) throws IOException{
-		JPanel panel = new JPanel(){
-			private static final long serialVersionUID = 1;			
-			private BufferedImage buf = ImageIO.read(img);
-			
-			@Override
-			protected void paintComponent(Graphics g){
-				super.paintComponent(g);
-				g.drawImage(buf, 0,0, null);
-			}
-		};		
-		frame.setContentPane(panel);		
-		return panel;
-	}
 	
 	public static void main(String[] args) throws IOException{
 		DefaultFrame();
@@ -122,9 +114,14 @@ public class Lancement extends JFrame {
 				nom2 = joueur2.getText();
 				if(!nom1.equals("") && !nom2.equals("")){
 					if(!nom1.equals(nom2)){
-						Start start = new Start(10); //Nombre de point pour gagner
-						start.initialisation(nom1, nom2);					
-						potCommun.DefaultFrame();					
+						Start start = new Start(10); //Nombre de point pour gagner				
+						try {
+							start.initialisation(nom1, nom2);	
+							potCommun.DefaultFrame();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}					
 						panel.setVisible(false);
 						frame.setVisible(false);
 					}

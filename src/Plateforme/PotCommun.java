@@ -2,11 +2,17 @@ package Plateforme;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.IOException;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.GrayFilter;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -28,6 +34,7 @@ public class PotCommun extends JFrame {
 	static JPanel jeu = new JPanel();
 	static JLabel title,player1,player2;
 	static JScrollPane sp1, sp2, spG;
+	static BackGroundImage bckImage = new BackGroundImage();
 	
 	public static String nom1,nom2;
 	public static JTextArea comm1, comm2, commG;
@@ -37,7 +44,7 @@ public class PotCommun extends JFrame {
 		PotCommun.nom2 = nom2;
 	}
 
-	public void DefaultFrame(){		
+	public void DefaultFrame() throws IOException{		
 		pot.setTitle("Jeu de Lettre : "+nom1+" vs "+nom2);
 		pot.setResizable(true);
 		pot.setLocationRelativeTo(null);
@@ -49,12 +56,20 @@ public class PotCommun extends JFrame {
 		pot.getContentPane().add(j2, BorderLayout.EAST);
 		pot.getContentPane().add(jeu, BorderLayout.CENTER);
 		
+		pot.pack();
 		pot.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		pot.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		pot.setVisible(true);
 	}
 	
-	public static void Plateau(){				
+	public static void Plateau() throws IOException{		
+		j1.setLayout(new BoxLayout(j1,BoxLayout.Y_AXIS));
+		j2.setLayout(new BoxLayout(j2,BoxLayout.Y_AXIS));
+		jeu.setLayout(new BoxLayout(jeu,BoxLayout.Y_AXIS));
+		
+		j1.setPreferredSize(new Dimension(400,pot.getHeight()));
+		jeu.setPreferredSize(new Dimension(400,pot.getHeight()));
+		j2.setPreferredSize(new Dimension(400,pot.getHeight()));
 		player1 = new JLabel(nom1);
 		player2 = new JLabel(nom2);
 		title = new JLabel("Informations communes : ");
@@ -63,33 +78,43 @@ public class PotCommun extends JFrame {
 		player2.setFont(new Font("Serif", Font.BOLD, 32));
 		title.setFont(new Font("Serif", Font.BOLD, 32));
 		
+		final ImageIcon imageIcon = new ImageIcon("src/planche.jpg");
+		commG = new JTextArea() {
+			private static final long serialVersionUID = 1L;
+			Image image = imageIcon.getImage();{
+				setOpaque(false);
+			}
+			public void paint(Graphics g){
+				g.drawImage(image, 0, 0, jeu.getWidth(), jeu.getHeight(), this);
+				super.paint(g);
+			}
+		};
+		spG = new JScrollPane(commG);
+		Container content = pot.getContentPane();
+		content.add(spG, BorderLayout.CENTER);
+			
 		comm1.setEditable(false);
 		comm2.setEditable(false);
-		commG.setEditable(false);
+		commG.setEditable(false);		
+
+		commG.setFont(new Font("Serif", Font.BOLD, 12));
+		commG.setForeground(Color.WHITE);
 		
 		sp1 = new JScrollPane(comm1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		sp2 = new JScrollPane(comm2, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		spG = new JScrollPane(commG, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);	
-		
-		j1.setPreferredSize(new Dimension(400,pot.getHeight()));
-		jeu.setPreferredSize(new Dimension(400,pot.getHeight()));
-		j2.setPreferredSize(new Dimension(400,pot.getHeight()));
-		
-		j1.setLayout(new BoxLayout(j1,BoxLayout.Y_AXIS));
-		j2.setLayout(new BoxLayout(j2,BoxLayout.Y_AXIS));
-		jeu.setLayout(new BoxLayout(jeu,BoxLayout.Y_AXIS));
+		spG = new JScrollPane(commG, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+			
 		
 		j1.add(player1, BorderLayout.NORTH);
 		j1.add(sp1);
-		j1.setOpaque(true);
+		j1.setOpaque(false);
 		j2.add(player2, BorderLayout.NORTH);
 		j2.add(sp2);
-		j2.setOpaque(true);
+		j2.setOpaque(false);
 		jeu.add(title);
-		jeu.add(Box.createRigidArea(new Dimension(15,100)));
+		jeu.add(Box.createRigidArea(new Dimension(15,50)));
 		jeu.add(spG);
-		jeu.setBackground(Color.LIGHT_GRAY);
-		jeu.setOpaque(true);
+		jeu.setOpaque(true);		
 	}
 	
 	public void AjoutTextComm1(String text){
