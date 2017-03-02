@@ -15,9 +15,9 @@ public class Popup {
 	
 	public static String PopupChoice(String sentences){
 		JDialog.setDefaultLookAndFeelDecorated(true);
-	    Object[] selectionValues = { "Saisir un mot", "Completer un mot", "Passer son tour" };
-	    String initialSelection = "Saisir un mot";
-	    Object selection = JOptionPane.showInputDialog(null, sentences,"Choix", JOptionPane.QUESTION_MESSAGE, null, selectionValues, initialSelection);
-	    return selection.toString();
+		Object[] selectionValues = { "Saisir un mot", "Completer un mot", "Passer son tour" };
+		String initialSelection = "Saisir un mot";
+		Object selection = JOptionPane.showInputDialog(null, sentences,"Choix", JOptionPane.QUESTION_MESSAGE, null, selectionValues, initialSelection);
+		return selection.toString();
 	}
 }

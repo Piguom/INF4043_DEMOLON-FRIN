@@ -9,7 +9,7 @@ public class CreerNouveauMotIA {
 	
 	static Dictionnaire dico = new Dictionnaire();
 	
-	public static String createNewMotIA(){
+	public static String creerNouveauMotIA(){
 		  ArrayList<String> listeDesMots = dico.getAllMotFromSize(Tapis.tapis.size());
 		  
 		  String charSequence = "";

@@ -16,22 +16,20 @@ public class Saisie{
 			
 			switch (saisie) {
 	    case "Saisir un mot":
-	  	  return Mot.createNewMot();
+	  	  return Mot.creerNouveauMot();
 	    case "Complester un mot":
-	    	return Mot.updateMot();
+	    	return Mot.mettreAJourMot();
 	    case "Passer son tour":
 	    	if(joueurCourant.getNomJoueur().equals(Lancement.getNameJ1()))
 	    		potCommun.AjoutTextComm1("Vous passez votre tour");
 	    	else
 	    		potCommun.AjoutTextComm2("Vous passez votre tour");
-	    	//System.out.println("Vous passez votre tours");
 	    	return null;
 	    default :  
 	    	if(joueurCourant.getNomJoueur().equals(Lancement.getNameJ1()))
 	    		potCommun.AjoutTextComm1("La valeur saisie n'existe pas !");
 	    	else
 	    		potCommun.AjoutTextComm2("La valeur saisie n'existe pas !");
-	    	//System.out.println("La valeur saisie n'existe pas !");
 	    	return saisie(joueurCourant);
 			}
 		}

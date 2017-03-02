@@ -31,11 +31,11 @@ public class Start {
 	/*Booléen de décision de fin du jeu*/
 	boolean finDuGame;
 	
-	public Start(int score){
+	public Start(int scores){
 		dictionnaire = new Dictionnaire();
 		sac = new Sac();
 		tapis = new Tapis();
-		this.score = score;
+		score = scores;
 		joueurQuiJoue = 0;
 		joueurs = new ArrayList<Joueur>();
 		//tourUnvUn = new Tour1vs1();
@@ -59,10 +59,10 @@ public class Start {
 	}
 	
 	public void choixPremierJoueur(){
-		lettre1 = sac.generateRandomChar();
-		lettre2 = sac.generateRandomChar();
+		lettre1 = sac.genererNombreAleatoire();
+		lettre2 = sac.genererNombreAleatoire();
 		
-		if(sac.testCharIsBetter(lettre1, lettre2)){
+		if(sac.testerValeurCaractere(lettre1, lettre2)){
 			joueurs.add(player1);
 			joueurs.add(player2);
 		}else{

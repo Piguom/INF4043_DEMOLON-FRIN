@@ -16,12 +16,12 @@ public class Sac {
 		this.alphabetSize = this.alphabet.length();
 	}
 	
-	public char generateRandomChar(){
+	public char genererNombreAleatoire(){
 		Random nbAlea = new Random();
 		return alphabet.charAt(nbAlea.nextInt(alphabetSize));
 	}
 	
-	public boolean testCharIsBetter(char lettre1,char lettre2){
+	public boolean testerValeurCaractere(char lettre1,char lettre2){
 		PotCommun.comm1 = new JTextArea("\nVous avez tire la lettre "+lettre1 + " : " + (int)lettre1);
 		PotCommun.comm2 = new JTextArea("\nVous avez tire la lettre "+lettre2 + " : "  + (int)lettre2);
 		if((int)lettre1<(int)lettre2){

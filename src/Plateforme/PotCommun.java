@@ -5,11 +5,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.text.BadLocationException;
@@ -71,11 +71,6 @@ public class PotCommun extends JFrame {
 		sp2 = new JScrollPane(comm2, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		spG = new JScrollPane(commG, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);	
 		
-		JScrollBar toTop = spG.getHorizontalScrollBar();
-		toTop.setValue(0);
-		
-		spG.setHorizontalScrollBar(toTop);
-		
 		j1.setPreferredSize(new Dimension(400,pot.getHeight()));
 		jeu.setPreferredSize(new Dimension(400,pot.getHeight()));
 		j2.setPreferredSize(new Dimension(400,pot.getHeight()));
@@ -91,6 +86,7 @@ public class PotCommun extends JFrame {
 		j2.add(sp2);
 		j2.setOpaque(true);
 		jeu.add(title);
+		jeu.add(Box.createRigidArea(new Dimension(15,100)));
 		jeu.add(spG);
 		jeu.setBackground(Color.LIGHT_GRAY);
 		jeu.setOpaque(true);
@@ -98,7 +94,8 @@ public class PotCommun extends JFrame {
 	
 	public void AjoutTextComm1(String text){
 		try {
-			PotCommun.comm1.getDocument().insertString(0, text, null);
+			comm1.getDocument().insertString(0, text, null);
+			comm1.setCaretPosition(0);
 		} catch (BadLocationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -107,7 +104,8 @@ public class PotCommun extends JFrame {
 	
 	public void AjoutTextComm2(String text){
 		try {
-			PotCommun.comm2.getDocument().insertString(0, text, null);
+			comm2.getDocument().insertString(0, text, null);
+			comm2.setCaretPosition(0);
 		} catch (BadLocationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -116,7 +114,8 @@ public class PotCommun extends JFrame {
 	
 	public void AjoutTextCommG(String text){
 		try {
-			PotCommun.commG.getDocument().insertString(0, text, null);
+			commG.getDocument().insertString(0, text, null);
+			commG.setCaretPosition(0);
 		} catch (BadLocationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

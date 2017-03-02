@@ -18,19 +18,12 @@ public class Tour1vs1 {
 	PotCommun potCommun= Start.potCommun;
 	int joueurCourant = Start.joueurQuiJoue;
 	
-	public Tour1vs1(){
-		/*joueurActuel = Start.getJoueurCourant();
-		tapis ;
-		sac = Start.sac;
-		joueurs = Start.joueurs;
-		potCommun = Start.potCommun;
-		joueurCourant = Start.joueurQuiJoue;*/
-	}
+	public Tour1vs1(){}
 	
 	public boolean tourAvecAuMoinsUnPasIA(){
 		//On le fait 2 fois pour avoir 2 lettres
-		tapis.add(sac.generateRandomChar());
-		tapis.add(sac.generateRandomChar());
+		tapis.add(sac.genererNombreAleatoire());
+		tapis.add(sac.genererNombreAleatoire());
 		
 		for(Joueur joueur : joueurs){
 			if(joueur.getNomJoueur().equals(Lancement.getNameJ1()))

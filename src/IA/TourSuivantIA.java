@@ -1,7 +1,5 @@
 package IA;
 
-import java.awt.Font;
-
 import Jeu.Start;
 import Joueur.Joueur;
 import Plateforme.PotCommun;
@@ -14,7 +12,7 @@ public class TourSuivantIA {
 		  
 		potCommun.AjoutTextCommG("\n Tour de l'IA "+joueurCourant.getNomJoueur());
 		
-		  String mot = CreerNouveauMotIA.createNewMotIA();
+		  String mot = CreerNouveauMotIA.creerNouveauMotIA();
 		  if (mot != null) {
 			  potCommun.AjoutTextCommG("\nLe mot cree par l'IA : "+mot);
 				  joueurCourant.getMontableauDeMot().add(mot);
@@ -25,7 +23,7 @@ public class TourSuivantIA {
 					joueurAdverse = joueur; 
 				}
 			}
-			mot = MettreAJourMotIA.updateMotIA(joueurAdverse);
+			mot = MettreAJourMotIA.mettreAJourMotIA(joueurAdverse);
 			if(mot != null && joueurCourant.getMontableauDeMot().contains(mot) == false){
 				potCommun.AjoutTextCommG("\nLe mot cree par l'IA : "+mot+" a partir d'un mot de l'adversaire.");
 				  joueurCourant.getMontableauDeMot().add(mot);

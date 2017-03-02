@@ -8,9 +8,7 @@ public class ListeJoueurs {
 	 
 	 public ListeJoueurs(){
 		 listeDesJoueurs = new ArrayList<Joueur>();
-	 }
-	
-	
+	 }	
 	
 	public void setListeDesJoueurs(ArrayList<Joueur> listeDesJoueurs) {
 		ListeJoueurs.listeDesJoueurs = listeDesJoueurs;

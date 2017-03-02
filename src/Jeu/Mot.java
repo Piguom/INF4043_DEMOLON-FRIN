@@ -11,7 +11,7 @@ public class Mot {
 	static Dictionnaire dico = new Dictionnaire();
 	static PotCommun potCommun = Start.potCommun;
 	
-	 public static String createNewMot(){
+	 public static String creerNouveauMot(){
 		  String mot = Popup.PopupInput("Entrer votre mot : ");
 		  if(dico.motValide(Tapis.tapis,mot) && dico.isWord(mot)){
 			  Tapis.removeMotToTapis(mot);
@@ -22,7 +22,7 @@ public class Mot {
 		}
 	  }
 	  
-	  public static String updateMot(){
+	  public static String mettreAJourMot(){
 		  String motACompleter = Popup.PopupInput("Entrer le mot a completer : ");
 		  Joueur joueurAdverse = Start.getJoueurWhereMotExist(motACompleter);
 		  if(joueurAdverse != null){
