@@ -11,18 +11,20 @@ import Tapis.Tapis;
 
 public class Tour1vs1 {
 	
-	Joueur joueurActuel;
-	Tapis tapis;
-	Sac sac;
-	ArrayList<Joueur> joueurs;
-	PotCommun potCommun;
+	Joueur joueurActuel= Start.getJoueurCourant();
+	Tapis tapis= Start.tapis;
+	Sac sac= Start.sac;
+	ArrayList<Joueur> joueurs= Start.joueurs;
+	PotCommun potCommun= Start.potCommun;
+	int joueurCourant = Start.joueurQuiJoue;
 	
-	public Tour1vs1(Joueur joueurActuel){
-		tapis = Start.tapis;
+	public Tour1vs1(){
+		/*joueurActuel = Start.getJoueurCourant();
+		tapis ;
 		sac = Start.sac;
 		joueurs = Start.joueurs;
 		potCommun = Start.potCommun;
-		this.joueurActuel = joueurActuel;
+		joueurCourant = Start.joueurQuiJoue;*/
 	}
 	
 	public boolean tourAvecAuMoinsUnPasIA(){
@@ -30,7 +32,7 @@ public class Tour1vs1 {
 		tapis.add(sac.generateRandomChar());
 		tapis.add(sac.generateRandomChar());
 		
-		for(Joueur joueur : Start.joueurs){
+		for(Joueur joueur : joueurs){
 			if(joueur.getNomJoueur().equals(Lancement.getNameJ1()))
 				potCommun.AjoutTextComm1("\n"+joueur.toString()+"\n");
 	    	else

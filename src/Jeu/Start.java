@@ -16,8 +16,10 @@ public class Start {
 	static Dictionnaire dictionnaire;
 	static Sac sac;
 	static Tapis tapis;
-	static String joueur1, joueur2;
-	static int score,joueurQuiJoue;
+	String joueur1;
+	String joueur2;
+	static int score;
+	public static int joueurQuiJoue;
 	static Joueur player1,player2;
 	static ArrayList<Joueur> joueurs;
 	public static PotCommun potCommun;
@@ -33,15 +35,15 @@ public class Start {
 		dictionnaire = new Dictionnaire();
 		sac = new Sac();
 		tapis = new Tapis();
-		Start.score = score;
+		this.score = score;
 		joueurQuiJoue = 0;
 		joueurs = new ArrayList<Joueur>();
-		tourUnvUn = new Tour1vs1(getJoueurQuiJoue());
+		//tourUnvUn = new Tour1vs1();
 	}
 	
 	public void initialisation(String joueur1, String joueur2){
-		Start.joueur1 = joueur1;
-		Start.joueur2 = joueur2;
+		this.joueur1 = joueur1;
+		this.joueur2 = joueur2;
 		
 		//Enregistrement des joueurs
 		player1 = new Joueur();
@@ -88,33 +90,24 @@ public class Start {
 		finDuGame = false;
 		
 		while(finDuGame == false){
+			tourUnvUn = new Tour1vs1();
 			finDuGame = tourUnvUn.tourAvecAuMoinsUnPasIA();
 		}
 	}
 	
 	public void finDuGame(){
-		potCommun.AjoutTextCommG("Fin du jeu");
+		potCommun.AjoutTextCommG("\nFin du jeu");
 		
 		for(int i = 0;i < Start.getListeDesJoueurs().size();i++){
 			if(Start.getListeDesJoueurs().get(i).getMontableauDeMot().size() == Start.getScorePourGagner()){
-				potCommun.AjoutTextCommG(Start.getListeDesJoueurs().get(i).toString());
-				potCommun.AjoutTextCommG("\nLe joueur : "+Start.getListeDesJoueurs().get(i).getNomJoueur()+" gagne !\n");
+				potCommun.AjoutTextCommG("\n\b"+Start.getListeDesJoueurs().get(i).toString());
+				potCommun.AjoutTextCommG("\nLe joueur : \b"+Start.getListeDesJoueurs().get(i).getNomJoueur()+" gagne !\n");
 			}
 		}
 		potCommun.AjoutTextCommG("\n\nGame Over.\n\n");
 	}
 	
 	/*Fonctions supplémentaire pour le bon déroulement des précédentes*/
-
-	public Joueur getJoueurQuiJoue(){
-		if(Start.joueurQuiJoue >= Start.joueurs.size()){
-			Start.joueurQuiJoue = 0;
-		}
-		  
-		Joueur joueurCourant = Start.joueurs.get(Start.joueurQuiJoue);
-		Start.joueurQuiJoue ++;
-		return joueurCourant;
-	}
 	
 	public static ArrayList<Joueur> getListeDesJoueurs() {
 		return joueurs;
@@ -125,7 +118,7 @@ public class Start {
 	}
 	  
 	public static Joueur getJoueurWhereMotExist(String mot){
-		for(Joueur joueur : Start.getListeDesJoueurs()){
+		for(Joueur joueur : getListeDesJoueurs()){
 			for (String motDeLaListe : joueur.getMontableauDeMot()){
 				if(motDeLaListe.equals(mot)){
 					return joueur;
@@ -134,4 +127,15 @@ public class Start {
 		}
 		return null;
 	} 
+	
+
+	public static Joueur getJoueurCourant(){
+		  if(joueurQuiJoue >= joueurs.size()){
+			  joueurQuiJoue = 0;
+		  }		  
+		  Joueur joueurCourantJ = joueurs.get(joueurQuiJoue);
+		  joueurQuiJoue++;
+		  return joueurCourantJ;
+	  }
+	
 }

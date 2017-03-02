@@ -1,5 +1,7 @@
 package IA;
 
+import java.awt.Font;
+
 import Jeu.Start;
 import Joueur.Joueur;
 import Plateforme.PotCommun;
@@ -15,7 +17,7 @@ public class TourSuivantIA {
 		 
 		  String mot = CreerNouveauMotIA.createNewMotIA();
 		  if (mot != null) {
-			  potCommun.AjoutTextCommG("Le mot cree par l'IA : "+mot);
+			  potCommun.AjoutTextCommG("\nLe mot cree par l'IA : "+mot);
 			//  System.out.println("Le mot cree par l'IA : "+mot);
 				  joueurCourant.getMontableauDeMot().add(mot);
 		}else{
@@ -27,11 +29,11 @@ public class TourSuivantIA {
 			}
 			mot = MettreAJourMotIA.updateMotIA(joueurAdverse);
 			if(mot != null && joueurCourant.getMontableauDeMot().contains(mot) == false){
-				potCommun.AjoutTextCommG("Le mot cree par l'IA : "+mot+" a partir d'un mot de l'adversaire.");
+				potCommun.AjoutTextCommG("\nLe mot cree par l'IA : "+mot+" a partir d'un mot de l'adversaire.");
 				//System.out.println("Le mot cr�� par l'IA : "+mot+" a partir d'un mot de l'adversaire.");
 				  joueurCourant.getMontableauDeMot().add(mot);
 			}else{
-				potCommun.AjoutTextCommG("L'IA n'a pas r�ussi a cr�er un mot ou � allonger un de vos mots, elle passe son tour.");				
+				potCommun.AjoutTextCommG("\nL'IA n'a pas reussi a creer un mot ou a allonger un de vos mots, elle passe son tour.");				
 				//System.out.println("L'IA n'a pas r�ussi a cr�er un mot ou � allonger un de vos mots, elle passe son tour.");
 				return false;
 			}

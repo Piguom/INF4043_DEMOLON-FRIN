@@ -1,21 +1,21 @@
 package Joueur;
 
-public class GetJoueurCourant {
-	
-	  private static int joueurCourant;
-	  
-	  public GetJoueurCourant(){
-		    joueurCourant = 0;
-	  }
+import java.util.ArrayList;
+
+import Jeu.Start;
+
+public class GetJoueurCourant extends Joueur{	
 	
 	  public static Joueur getJoueurCourant(){
+		  int joueurCourant = Start.joueurQuiJoue;
+		  ArrayList<Joueur> listeDesJoueurs = Start.getListeDesJoueurs();
 		  
-		  if(joueurCourant >= ListeJoueurs.listeDesJoueurs.size()){
+		  if(joueurCourant >= listeDesJoueurs.size()){
 			  joueurCourant = 0;
 		  }
-		  Joueur joueurCourant = ListeJoueurs.listeDesJoueurs.get(GetJoueurCourant.joueurCourant);
-		  GetJoueurCourant.joueurCourant ++;
-		  return joueurCourant;
+		  Joueur joueurQuiJoue = listeDesJoueurs.get(joueurCourant);
+		  joueurCourant++;
+		  return joueurQuiJoue;
 	  }
 }
 
