@@ -8,13 +8,16 @@ import java.util.ArrayList;
 
 import javax.swing.text.BadLocationException;
 
+import Jeu.Start;
 import Plateforme.PotCommun;
 
 public class Dictionnaire implements IsWord
 {
 	private String path;
+	public static PotCommun potCommun;
 	
 	public Dictionnaire(){
+		potCommun = Start.potCommun;
 		this.path = System.getProperty("user.dir")+"/src/Dictionnaire/dico.txt";
 	}
 	
@@ -30,15 +33,9 @@ public class Dictionnaire implements IsWord
 			String line;
 			while((line = reader.readLine()) != null) { 
 				if (line.equals(word)) {
-					try {
-						PotCommun.commG.getDocument().insertString(0, "\nLe fichier contient le mot : "+word, null);
-					} catch (BadLocationException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-						//System.out.println("Le fichier contient le mot : "+word); 
-						reader.close();
-						return true;
+					potCommun.AjoutTextCommG("\nLe fichier contient le mot : "+word);
+					reader.close();
+					return true;
 				}
 			}
 			reader.close();
@@ -46,13 +43,7 @@ public class Dictionnaire implements IsWord
 			System.out.println("Une erreur est survenue avec le dictionnaire"); 
 			e.printStackTrace();
 		}
-		try {
-			PotCommun.commG.getDocument().insertString(0, "\nLe mot "+word +" n'existe pas dans le dictionnaire", null);
-		} catch (BadLocationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	//	System.out.println("Le mot "+word +" n'existe pas dans le dictionnaire");
+		potCommun.AjoutTextCommG("\nLe mot "+word +" n'existe pas dans le dictionnaire");
 		return false;
 	}
 	

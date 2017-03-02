@@ -9,6 +9,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.text.BadLocationException;
@@ -69,6 +70,11 @@ public class PotCommun extends JFrame {
 		sp1 = new JScrollPane(comm1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		sp2 = new JScrollPane(comm2, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		spG = new JScrollPane(commG, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);	
+		
+		JScrollBar toTop = spG.getHorizontalScrollBar();
+		toTop.setValue(0);
+		
+		spG.setHorizontalScrollBar(toTop);
 		
 		j1.setPreferredSize(new Dimension(400,pot.getHeight()));
 		jeu.setPreferredSize(new Dimension(400,pot.getHeight()));

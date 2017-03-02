@@ -1,6 +1,6 @@
 # Dictionary
 
-Dictionary found at http://www.lexique.org/telLexique.php
+Dictionary found at http://www.pallier.org/ressources/dicofr/dicofr.html
 extract done with :
 ```
 awk -F ";" '{print $1";"$4 }' dico.csv | egrep NOM$ | cut -d';' -f1
