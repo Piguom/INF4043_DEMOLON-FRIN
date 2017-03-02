@@ -16,7 +16,7 @@ public class Dictionnaire implements IsWord
 	
 	public Dictionnaire(){
 		potCommun = Start.potCommun;
-		this.path = System.getProperty("user.dir")+"/src/Dictionnaire/dico.txt";
+		this.path = getClass().getResource("/resources/dico.txt").toString(); //System.getProperty("user.dir")+"/src/resources/dico.txt";
 	}
 	
 	public Dictionnaire(String path){
