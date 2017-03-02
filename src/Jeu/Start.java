@@ -1,6 +1,7 @@
 package Jeu;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -42,7 +43,7 @@ public class Start {
 		//tourUnvUn = new Tour1vs1();
 	}
 	
-	public void initialisation(String joueur1, String joueur2) throws IOException{
+	public void initialisation(String joueur1, String joueur2) throws IOException, URISyntaxException{
 		this.joueur1 = joueur1;
 		this.joueur2 = joueur2;
 		
@@ -56,7 +57,7 @@ public class Start {
 		choixPremierJoueur();
 		choixJoueurIA();
 		jeuCommence();
-		finDuGame();
+		Fin.finDuGame();
 	}
 	
 	public void choixPremierJoueur(){
@@ -94,18 +95,6 @@ public class Start {
 			tourUnvUn = new Tour1vs1();
 			finDuGame = tourUnvUn.tourAvecAuMoinsUnPasIA();
 		}
-	}
-	
-	public void finDuGame(){
-		potCommun.AjoutTextCommG("\nFin du jeu");
-		
-		for(int i = 0;i < Start.getListeDesJoueurs().size();i++){
-			if(Start.getListeDesJoueurs().get(i).getMontableauDeMot().size() == Start.getScorePourGagner()){
-				potCommun.AjoutTextCommG("\n\b"+Start.getListeDesJoueurs().get(i).toString());
-				potCommun.AjoutTextCommG("\nLe joueur : \b"+Start.getListeDesJoueurs().get(i).getNomJoueur()+" gagne !\n");
-			}
-		}
-		potCommun.AjoutTextCommG("\n\nGame Over.\n\n");
 	}
 	
 	/*Fonctions supplémentaire pour le bon déroulement des précédentes*/

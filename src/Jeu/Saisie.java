@@ -25,7 +25,7 @@ public class Saisie{
 	    	else
 	    		potCommun.AjoutTextComm2("Vous passez votre tour");
 	    	return null;
-	    default :  
+	    default :
 	    	if(joueurCourant.getNomJoueur().equals(Lancement.getNameJ1()))
 	    		potCommun.AjoutTextComm1("La valeur saisie n'existe pas !");
 	    	else

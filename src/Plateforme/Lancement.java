@@ -8,8 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -40,21 +40,23 @@ public class Lancement extends JFrame {
 	static PotCommun potCommun;
 	static BackGroundImage bckImage = new BackGroundImage();
 
-	public static void DefaultFrame() throws IOException{
+	public static void DefaultFrame() throws IOException, URISyntaxException{
+		
 		frame.setTitle("Jeu de Lettre");
 		frame.setSize(600, 600);
 		frame.setResizable(true);
 		frame.setLocationRelativeTo(null);
 	
-		ChoixJoueur();
+		Lancement.ChoixJoueur();
 				
 		frame.pack();
 		frame.setVisible(true);
 	}
 	
-	public static void ChoixJoueur() throws IOException{
-
-		panel = bckImage.setBackgroundImage(frame, new File("src/picture.jpg"));
+	public static void ChoixJoueur() throws IOException, URISyntaxException{
+		
+		panel = BackGroundImage.setBackgroundImage(frame, "/resources/picture.jpg");
+		
 		panel.setLayout(null);
 		panel.setPreferredSize(new Dimension(600,400));
 		
@@ -103,8 +105,8 @@ public class Lancement extends JFrame {
 	public static String getNameJ2(){return nom2;}
 	
 	
-	public static void main(String[] args) throws IOException{
-		DefaultFrame();
+	public static void main(String[] args) throws IOException, URISyntaxException{
+		Lancement.DefaultFrame();
 		
 		valider.addActionListener(new ActionListener()
 		{
@@ -114,16 +116,16 @@ public class Lancement extends JFrame {
 				nom2 = joueur2.getText();
 				if(!nom1.equals("") && !nom2.equals("")){
 					if(!nom1.equals(nom2)){
+						panel.setVisible(false);
+						frame.setVisible(false);
 						Start start = new Start(10); //Nombre de point pour gagner				
 						try {
 							start.initialisation(nom1, nom2);	
 							potCommun.DefaultFrame();
-						} catch (IOException e) {
+						} catch (IOException | URISyntaxException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}					
-						panel.setVisible(false);
-						frame.setVisible(false);
 					}
 					else
 						JOptionPane.showMessageDialog(null, "ALERTE : Vous ne pouvez pas avoir le même nom !!!");

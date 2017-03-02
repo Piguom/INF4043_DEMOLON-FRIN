@@ -11,7 +11,6 @@ import java.io.IOException;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.GrayFilter;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -27,7 +26,7 @@ public class PotCommun extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	static JFrame pot = new JFrame();
+	public static JFrame pot = new JFrame();
 	static JPanel pan = new JPanel(new BorderLayout());
 	static JPanel j1 = new JPanel();
 	static JPanel j2 = new JPanel();
@@ -46,8 +45,9 @@ public class PotCommun extends JFrame {
 
 	public void DefaultFrame() throws IOException{		
 		pot.setTitle("Jeu de Lettre : "+nom1+" vs "+nom2);
+		pot.setPreferredSize(new Dimension(1200,600));
 		pot.setResizable(true);
-		pot.setLocationRelativeTo(null);
+		//pot.setLocationRelativeTo(null);
 		pot.setLayout(new BorderLayout());
 	
 		Plateau();
@@ -58,7 +58,6 @@ public class PotCommun extends JFrame {
 		
 		pot.pack();
 		pot.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		pot.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		pot.setVisible(true);
 	}
 	
@@ -67,9 +66,9 @@ public class PotCommun extends JFrame {
 		j2.setLayout(new BoxLayout(j2,BoxLayout.Y_AXIS));
 		jeu.setLayout(new BoxLayout(jeu,BoxLayout.Y_AXIS));
 		
-		j1.setPreferredSize(new Dimension(400,pot.getHeight()));
-		jeu.setPreferredSize(new Dimension(400,pot.getHeight()));
-		j2.setPreferredSize(new Dimension(400,pot.getHeight()));
+		j1.setPreferredSize(new Dimension(400,600));
+		jeu.setPreferredSize(new Dimension(400,600));
+		j2.setPreferredSize(new Dimension(400,600));
 		player1 = new JLabel(nom1);
 		player2 = new JLabel(nom2);
 		title = new JLabel("Informations communes : ");
@@ -77,8 +76,8 @@ public class PotCommun extends JFrame {
 		player1.setFont(new Font("Serif", Font.BOLD, 32));
 		player2.setFont(new Font("Serif", Font.BOLD, 32));
 		title.setFont(new Font("Serif", Font.BOLD, 32));
-		
-		final ImageIcon imageIcon = new ImageIcon("src/planche.jpg");
+				
+		final ImageIcon imageIcon = new ImageIcon(PotCommun.class.getResource("/resources/planche.jpg"));
 		commG = new JTextArea() {
 			private static final long serialVersionUID = 1L;
 			Image image = imageIcon.getImage();{
@@ -99,6 +98,7 @@ public class PotCommun extends JFrame {
 
 		commG.setFont(new Font("Serif", Font.BOLD, 12));
 		commG.setForeground(Color.WHITE);
+		commG.setAlignmentX(CENTER_ALIGNMENT);
 		
 		sp1 = new JScrollPane(comm1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		sp2 = new JScrollPane(comm2, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
