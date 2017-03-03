@@ -23,6 +23,7 @@ public class Tour1vs1 {
 	
 	public boolean tourAvecAuMoinsUnPasIA(){
 		tapis.add(sac.genererNombreAleatoire());
+		tapis.add(sac.genererNombreAleatoire());
 		
 		for(Joueur joueur : joueurs){
 			if(joueur.getNomJoueur().equals(Lancement.getNameJ1()))
