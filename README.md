@@ -53,3 +53,15 @@ Il ne contient qu'une seule classe qui permet aux joueurs de tirer la première 
 
 - <b>Tapis :</b>
 Cette classe permet d'ajouter, retirer une ou des lettres du pot commun afin de les distribuer dans le camp qui va bien afin de (re)former des mots. Ceux-ci sont alors afficher dans la liste des mots du joueur venant de jouer.
+
+#Quelques screeshots du jeu 
+![Screenshot](screen/joueurs.png)
+![Screenshot](screen/IA1.png)
+![Screenshot](screen/IA2.png)
+![Screenshot](screen/debut.png)
+![Screenshot](screen/encore.png)
+![Screenshot](screen/prismot.png)
+...<br>
+..<br>
+.<br>
+<b>On vous laisse découvrir le reste en venant jouer au jeu vous même ! ;) </b>
