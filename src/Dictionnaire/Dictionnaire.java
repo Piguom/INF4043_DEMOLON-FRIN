@@ -2,7 +2,6 @@ package Dictionnaire;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
@@ -45,7 +44,7 @@ public class Dictionnaire implements IsWord
 	}
 	
 	public boolean motValide(ArrayList<Character>listeDeLettre,String mot){
-		ArrayList<Character> temp = (ArrayList<Character>) listeDeLettre.clone();
+		ArrayList<?> temp = (ArrayList<?>) listeDeLettre.clone();
 		int taille = mot.length();
 		
 		for(int i = 0; i < taille;i++){

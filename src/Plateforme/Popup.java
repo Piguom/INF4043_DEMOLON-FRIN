@@ -4,14 +4,24 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import ActionJoueur.Saisie;
+import Jeu.Start;
+import Joueur.Joueur;
+
 public class Popup {
 	
 	static JFrame pot = PotCommun.pot;
+	static Joueur joueur = Start.getJoueurCourant();
 	
 	public static String PopupInput(String sentences){
 		JFrame frame = new JFrame();
-	    Object result = JOptionPane.showInputDialog(frame, sentences);    
-	    return result.toString();
+	    Object result = JOptionPane.showInputDialog(frame, sentences);   
+	    if(result == null){
+	    	result = Saisie.saisie(joueur);
+	    	return null;
+		}
+		else
+		    return result.toString();
 	}
 	
 	public static String PopupChoice(String sentences){
