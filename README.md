@@ -7,9 +7,11 @@ Ce jeu a été développé par 2 étudiants en 4ème année d'école d'ingénieu
 #Règles du jeux
 
 - Objectif du jeux :
+
 Le premier joueur ayant 10 mots gagne la partie
 
 - Déroulement du jeux :
+
 Chacun des joueurs tire une lettre aléatoire d'un sac, et les mettent au milieu dans le pot commun
 Le joueur qui a tiré la lettre la plus petite lettre dans l'alphabet commence.
 Chaque fois que c'est le début du tour d'un joueur il tire deux lettres aléatoires qu'il rajoute au pot commun
