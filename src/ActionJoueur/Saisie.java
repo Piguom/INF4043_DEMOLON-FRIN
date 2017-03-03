@@ -1,7 +1,6 @@
-package Jeu;
+package ActionJoueur;
 
-import ActionJoueur.CreerNouveauMot;
-import ActionJoueur.MettreAJourMot;
+import Jeu.Start;
 import Joueur.Joueur;
 import Plateforme.Lancement;
 import Plateforme.Popup;

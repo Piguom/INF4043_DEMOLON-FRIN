@@ -11,32 +11,17 @@ import Plateforme.PotCommun;
 
 public class Dictionnaire implements IsWord
 {
-	InputStream path;
-	InputStreamReader isr;
-	BufferedReader reader;
 	public static PotCommun potCommun;
 	
 	public Dictionnaire(){
 		potCommun = Start.potCommun;
-		this.path = getClass().getClassLoader().getResourceAsStream("dico.txt");
-	}
-	
-	public Dictionnaire(InputStream path){
-		try {
-			path.read();
-			this.path = path;
-			path.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	
 	@Override
 	public boolean isWord(String word)	{
-		try {	
-			isr = new InputStreamReader(path);
-			reader = new BufferedReader(isr); 
+		InputStreamReader isr = new InputStreamReader(getClass().getClassLoader().getResourceAsStream("dico.txt"));
+		BufferedReader reader = new BufferedReader(isr);
+		try {	 
 			String line;
 			while((line = reader.readLine()) != null) { 
 				if (line.equals(word)) {
@@ -44,10 +29,16 @@ public class Dictionnaire implements IsWord
 					return true;
 				}
 			}
-			reader.close();
 		} catch (IOException e) {
 			System.out.println("Une erreur est survenue avec le dictionnaire"); 
 			e.printStackTrace();
+		}finally {
+			try{
+				if(reader != null)
+					reader.close();
+			} catch(IOException e){
+				
+			}
 		}
 		potCommun.AjoutTextCommG("\nLe mot "+word +" n'existe pas dans le dictionnaire");
 		return false;
@@ -70,9 +61,9 @@ public class Dictionnaire implements IsWord
 	
 	public ArrayList<String> getAllMotFromSize(int taille){
 		ArrayList<String> listeDesMots = new ArrayList<String>();
+		InputStreamReader isr = new InputStreamReader(getClass().getClassLoader().getResourceAsStream("dico.txt"));
+		BufferedReader reader = new BufferedReader(isr); 
 		try {	
-			isr = new InputStreamReader(path);
-			reader = new BufferedReader(isr); 
 			String line;
 			while((line = reader.readLine()) != null) {
 				if (line.length() > 1 && line.length() <= taille) {
@@ -82,24 +73,38 @@ public class Dictionnaire implements IsWord
 		} catch (IOException e) {
 			System.out.println("Une erreur est survenue avec le dictionnaire"); 
 			e.printStackTrace();
+		}finally {
+			try{
+				if(reader != null)
+					reader.close();
+			} catch(IOException e){
+				
+			}
 		}
 		return listeDesMots;
 	}
 	
 	public ArrayList<String> getAllMotFromBase(String base){
 		ArrayList<String> listeDesMots = new ArrayList<String>();
+		InputStreamReader isr = new InputStreamReader(getClass().getClassLoader().getResourceAsStream("dico.txt"));
+		BufferedReader reader = new BufferedReader(isr); 
 		try {
-			isr = new InputStreamReader(path);
-			reader = new BufferedReader(isr); 
 			String line;
 			while((line = reader.readLine()) != null) {
 				if (line.equals(base) == false && line.contains(base)) {
 					listeDesMots.add(line);
 				}
-			}
+			}reader.close();
 		} catch (IOException e) {
 			System.out.println("Une erreur est survenue avec le dictionnaire"); 
 			e.printStackTrace();
+		}finally {
+			try{
+				if(reader != null)
+					reader.close();
+			} catch(IOException e){
+				
+			}
 		}
 		return listeDesMots;
 	}

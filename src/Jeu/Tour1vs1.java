@@ -2,6 +2,7 @@ package Jeu;
 
 import java.util.ArrayList;
 
+import ActionJoueur.Saisie;
 import IA.TourSuivantIA;
 import Joueur.Joueur;
 import Plateforme.Lancement;
@@ -22,7 +23,6 @@ public class Tour1vs1 {
 	
 	public boolean tourAvecAuMoinsUnPasIA(){
 		//On le fait 2 fois pour avoir 2 lettres
-		tapis.add(sac.genererNombreAleatoire());
 		tapis.add(sac.genererNombreAleatoire());
 		
 		for(Joueur joueur : joueurs){
