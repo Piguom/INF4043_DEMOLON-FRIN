@@ -24,7 +24,7 @@ public class Dictionnaire implements IsWord
 			String line;
 			while((line = reader.readLine()) != null) { 
 				if (line.equals(word)) {
-					potCommun.AjoutTextCommG("\nLe fichier contient le mot : "+word);
+					potCommun.AjoutTextCommG("\nLe dictionnaire connait le mot : "+word);
 					return true;
 				}
 			}
@@ -39,7 +39,7 @@ public class Dictionnaire implements IsWord
 				
 			}
 		}
-		potCommun.AjoutTextCommG("\nLe mot "+word +" n'existe pas dans le dictionnaire");
+		potCommun.AjoutTextCommG("\nLe mot "+word +" n'est pas dans le dictionnaire");
 		return false;
 	}
 	

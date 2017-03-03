@@ -13,7 +13,7 @@ public class Saisie{
 	  public static String saisie(Joueur joueurCourant){
 		  potCommun = Start.potCommun;
 			String saisie;
-			saisie = Popup.PopupChoice("Faites votre choix : ");
+			saisie = Popup.PopupChoice("Choisissez : ");
 			
 			switch (saisie) {
 	    case "Saisir un mot":
@@ -22,15 +22,15 @@ public class Saisie{
 	    	return MettreAJourMot.mettreAJourMot();
 	    case "Passer son tour":
 	    	if(joueurCourant.getNomJoueur().equals(Lancement.getNameJ1()))
-	    		potCommun.AjoutTextComm1("Vous passez votre tour");
+	    		potCommun.AjoutTextComm1("\nVous avez passer le tour");
 	    	else
-	    		potCommun.AjoutTextComm2("Vous passez votre tour");
+	    		potCommun.AjoutTextComm2("\nVous avez passer le tour");
 	    	return null;
 	    default :
 	    	if(joueurCourant.getNomJoueur().equals(Lancement.getNameJ1()))
-	    		potCommun.AjoutTextComm1("La valeur saisie n'existe pas !");
+	    		potCommun.AjoutTextComm1("\nSaisie inconne !");
 	    	else
-	    		potCommun.AjoutTextComm2("La valeur saisie n'existe pas !");
+	    		potCommun.AjoutTextComm2("\nSaisie inconne !");
 	    	return saisie(joueurCourant);
 			}
 		}

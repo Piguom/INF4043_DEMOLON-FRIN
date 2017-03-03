@@ -10,11 +10,11 @@ public class TourSuivantIA {
 	
 	public static boolean tourSuivantIA(Joueur joueurCourant){
 		  
-		potCommun.AjoutTextCommG("\n Tour de l'IA "+joueurCourant.getNomJoueur()+"\n");
+		potCommun.AjoutTextCommG("\nC'est au tour de l'IA ==> "+joueurCourant.getNomJoueur()+"\n");
 		
 		  String mot = CreerNouveauMotIA.creerNouveauMotIA();
 		  if (mot != null) {
-			  potCommun.AjoutTextCommG("\nLe mot cree par l'IA : "+mot);
+			  potCommun.AjoutTextCommG("\nMot cree par l'IA : "+mot);
 				  joueurCourant.getMontableauDeMot().add(mot);
 		}else{
 			Joueur joueurAdverse = null;
@@ -25,16 +25,16 @@ public class TourSuivantIA {
 			}
 			mot = MettreAJourMotIA.mettreAJourMotIA(joueurAdverse);
 			if(mot != null && joueurCourant.getMontableauDeMot().contains(mot) == false){
-				potCommun.AjoutTextCommG("\nLe mot cree par l'IA : "+mot+" a partir d'un mot de l'adversaire.");
+				potCommun.AjoutTextCommG("\nLe mot : "+mot+" a ete cree a partir d'un mot de l'adversaire par l'IA");
 				  joueurCourant.getMontableauDeMot().add(mot);
 			}else{
-				potCommun.AjoutTextCommG("\nL'IA n'a pas reussi a creer un mot ou a allonger un de vos mots, elle passe son tour.");	
+				potCommun.AjoutTextCommG("\nL'IA passe son tour.");	
 				return false;
 			}
 
 		}
 		
-		  potCommun.AjoutTextCommG("\nl'IA "+joueurCourant.getNomJoueur()+" marque 1 point.");
+		  potCommun.AjoutTextCommG("\nL'IA : "+joueurCourant.getNomJoueur()+" marque 1 point.");
 		if(joueurCourant.getMontableauDeMot().size() == Start.getScorePourGagner()){
 			return true;
 		}

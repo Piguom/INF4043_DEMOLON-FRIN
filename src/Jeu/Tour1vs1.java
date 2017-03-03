@@ -22,7 +22,6 @@ public class Tour1vs1 {
 	public Tour1vs1(){}
 	
 	public boolean tourAvecAuMoinsUnPasIA(){
-		//On le fait 2 fois pour avoir 2 lettres
 		tapis.add(sac.genererNombreAleatoire());
 		
 		for(Joueur joueur : joueurs){
@@ -37,11 +36,11 @@ public class Tour1vs1 {
 		if(joueurActuel.isIA() == true)
 			return TourSuivantIA.tourSuivantIA(joueurActuel);
 		else{
-			potCommun.AjoutTextCommG("\n Tour de "+joueurActuel.getNomJoueur()+"\n");
+			potCommun.AjoutTextCommG("\nC'est au tour de ==> "+joueurActuel.getNomJoueur()+"\n");
 			String mot = Saisie.saisie(joueurActuel);
 		  if (mot != null && joueurActuel.getMontableauDeMot().contains(mot) == false) {
 			  joueurActuel.getMontableauDeMot().add(mot);
-			  potCommun.AjoutTextCommG("\n"+joueurActuel.getNomJoueur()+" marque 1 point.");						
+			  potCommun.AjoutTextCommG("\n==> "+joueurActuel.getNomJoueur()+" marque 1 point.");						
 			  if(joueurActuel.getMontableauDeMot().size() == Start.getScorePourGagner()){
 				  return true;
 			  }

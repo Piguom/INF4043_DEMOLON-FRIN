@@ -20,9 +20,6 @@ public class BackGroundImage {
 			
 			private BufferedImage buf = ImageIO.read(this.getClass().getResource(img));
 			
-		//	ImageIcon icon = new ImageIcon(Lancement.class.getResource("/Ressources/picture.jpg"));
-		//	Image image = icon.getImage();
-			
 			@Override
 			protected void paintComponent(Graphics g)
 			{

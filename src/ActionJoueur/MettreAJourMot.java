@@ -13,14 +13,14 @@ public class MettreAJourMot {
 	static PotCommun potCommun = Start.potCommun;
 	
 	 public static String mettreAJourMot(){
-		  String motACompleter = Popup.PopupInput("Entrer le mot a completer : ");
+		  String motACompleter = Popup.PopupInput("Mot a completer : ");
 		  Joueur joueurAdverse = Start.getJoueurWhereMotExist(motACompleter);
 		  if(joueurAdverse != null){
-			  String nouveauMot = Popup.PopupInput("Le mot existe dans une des liste des joueurs, entrez le nouveau mot : ");
+			  String nouveauMot = Popup.PopupInput("Le mot est bien dans la liste de votre adversaire, veuillez inserer le nouveau mot :");
 			  if(nouveauMot.contains(motACompleter)){
 				  Tapis.addMotToTapis(motACompleter);
 				  if(dico.motValide(Tapis.tapis,nouveauMot) == false  || dico.isWord(nouveauMot) == false){
-					  potCommun.AjoutTextCommG("Le nouveau mot n'existe pas.");
+					  potCommun.AjoutTextCommG("\nLe nouveau mot n'est pas dans le disctionnaire");
 					  Tapis.removeMotToTapis(motACompleter);
 					  return null;
 				  }else{
@@ -29,11 +29,11 @@ public class MettreAJourMot {
 				  }
 				  return nouveauMot;
 			  }else{
-				  potCommun.AjoutTextCommG("Le mot � completer ne contient pas le mot de base");
+				  potCommun.AjoutTextCommG("\nVotre mot n'est pas dans la liste de votre adversaire");
 				  return null;
 			  }
 		  }
-		  potCommun.AjoutTextCommG("Aucun joueurs n'a d�ja fait ce mot.");
+		  potCommun.AjoutTextCommG("\nMont encore inconnu des deux listes");
 		  return null;
 	  } 
 }

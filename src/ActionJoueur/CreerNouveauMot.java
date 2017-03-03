@@ -12,12 +12,12 @@ public class CreerNouveauMot {
 	static PotCommun potCommun = Start.potCommun;
 	
 	 public static String creerNouveauMot(){
-		  String mot = Popup.PopupInput("Entrer votre mot : ");
+		  String mot = Popup.PopupInput("Taper le mot : ");
 		  if(dico.motValide(Tapis.tapis,mot) && dico.isWord(mot)){
 			  Tapis.removeMotToTapis(mot);
 			  return mot;
 		  }else{
-			  potCommun.AjoutTextCommG("\nLe mot "+mot+" n'est pas valide ou n'existe pas.");
+			  potCommun.AjoutTextCommG("\nLe mot "+mot+" est invalide (ou n'est pas dans le dictionnaire)");
 			  return null;
 		}
 	  }
