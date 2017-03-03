@@ -1,9 +1,9 @@
 package Dictionnaire;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import Jeu.Start;
@@ -11,28 +11,36 @@ import Plateforme.PotCommun;
 
 public class Dictionnaire implements IsWord
 {
-	private String path;
+	InputStream path;
+	InputStreamReader isr;
+	BufferedReader reader;
 	public static PotCommun potCommun;
 	
 	public Dictionnaire(){
 		potCommun = Start.potCommun;
-		this.path = getClass().getResource("/resources/dico.txt").toString(); //System.getProperty("user.dir")+"/src/resources/dico.txt";
+		this.path = getClass().getClassLoader().getResourceAsStream("dico.txt");
 	}
 	
-	public Dictionnaire(String path){
-		this.path = path;
+	public Dictionnaire(InputStream path){
+		try {
+			path.read();
+			this.path = path;
+			path.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
 	public boolean isWord(String word)	{
-		try {
-			File f = new File(path); 
-			BufferedReader reader = new BufferedReader(new FileReader(f)); 	
+		try {	
+			isr = new InputStreamReader(path);
+			reader = new BufferedReader(isr); 
 			String line;
 			while((line = reader.readLine()) != null) { 
 				if (line.equals(word)) {
 					potCommun.AjoutTextCommG("\nLe fichier contient le mot : "+word);
-					reader.close();
 					return true;
 				}
 			}
@@ -62,9 +70,9 @@ public class Dictionnaire implements IsWord
 	
 	public ArrayList<String> getAllMotFromSize(int taille){
 		ArrayList<String> listeDesMots = new ArrayList<String>();
-		try {
-			File f = new File(path); 
-			BufferedReader reader = new BufferedReader(new FileReader(f)); 	
+		try {	
+			isr = new InputStreamReader(path);
+			reader = new BufferedReader(isr); 
 			String line;
 			while((line = reader.readLine()) != null) {
 				if (line.length() > 1 && line.length() <= taille) {
@@ -81,8 +89,8 @@ public class Dictionnaire implements IsWord
 	public ArrayList<String> getAllMotFromBase(String base){
 		ArrayList<String> listeDesMots = new ArrayList<String>();
 		try {
-			File f = new File(path); 
-			BufferedReader reader = new BufferedReader(new FileReader(f)); 	
+			isr = new InputStreamReader(path);
+			reader = new BufferedReader(isr); 
 			String line;
 			while((line = reader.readLine()) != null) {
 				if (line.equals(base) == false && line.contains(base)) {

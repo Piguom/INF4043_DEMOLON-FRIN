@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -50,12 +51,13 @@ public class Lancement extends JFrame {
 		Lancement.ChoixJoueur();
 				
 		frame.pack();
+		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.setVisible(true);
 	}
 	
 	public static void ChoixJoueur() throws IOException, URISyntaxException{
 		
-		panel = BackGroundImage.setBackgroundImage(frame, "/resources/picture.jpg");
+		panel = BackGroundImage.setBackgroundImage(frame, "/picture.jpg");
 		
 		panel.setLayout(null);
 		panel.setPreferredSize(new Dimension(600,400));

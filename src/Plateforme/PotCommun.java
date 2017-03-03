@@ -7,8 +7,11 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -77,15 +80,17 @@ public class PotCommun extends JFrame {
 		player2.setFont(new Font("Serif", Font.BOLD, 32));
 		title.setFont(new Font("Serif", Font.BOLD, 32));
 				
-		final ImageIcon imageIcon = new ImageIcon(PotCommun.class.getResource("/resources/planche.jpg"));
+		
+		BufferedImage buf = ImageIO.read(PotCommun.class.getClass().getResource("/planche.jpg"));
+		
 		commG = new JTextArea() {
 			private static final long serialVersionUID = 1L;
-			Image image = imageIcon.getImage();{
+			@Override
+			protected void paintComponent(Graphics g)
+			{
 				setOpaque(false);
-			}
-			public void paint(Graphics g){
-				g.drawImage(image, 0, 0, jeu.getWidth(), jeu.getHeight(), this);
-				super.paint(g);
+				g.drawImage(buf, 0, 0, this);
+				super.paintComponent(g);
 			}
 		};
 		spG = new JScrollPane(commG);

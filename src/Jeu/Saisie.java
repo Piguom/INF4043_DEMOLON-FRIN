@@ -1,5 +1,7 @@
 package Jeu;
 
+import ActionJoueur.CreerNouveauMot;
+import ActionJoueur.MettreAJourMot;
 import Joueur.Joueur;
 import Plateforme.Lancement;
 import Plateforme.Popup;
@@ -16,9 +18,9 @@ public class Saisie{
 			
 			switch (saisie) {
 	    case "Saisir un mot":
-	  	  return Mot.creerNouveauMot();
-	    case "Complester un mot":
-	    	return Mot.mettreAJourMot();
+	  	  return CreerNouveauMot.creerNouveauMot();
+	    case "Completer un mot":
+	    	return MettreAJourMot.mettreAJourMot();
 	    case "Passer son tour":
 	    	if(joueurCourant.getNomJoueur().equals(Lancement.getNameJ1()))
 	    		potCommun.AjoutTextComm1("Vous passez votre tour");

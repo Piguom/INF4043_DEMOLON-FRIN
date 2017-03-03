@@ -10,7 +10,7 @@ public class MettreAJourMotIA {
 	
 	static Dictionnaire dico = new Dictionnaire();
 	
-	public static String mettreAJourMotIA(Joueur joueurAdverse){
+	public static String mettreAJourMotIA(Joueur joueurAdverse) {
 		  ArrayList<String> listeDesMots = new ArrayList<String>();
 		  for(String mot : joueurAdverse.getMontableauDeMot()){
 			  listeDesMots = dico.getAllMotFromBase(mot);

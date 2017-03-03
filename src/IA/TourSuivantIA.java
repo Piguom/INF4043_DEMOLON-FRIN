@@ -10,7 +10,7 @@ public class TourSuivantIA {
 	
 	public static boolean tourSuivantIA(Joueur joueurCourant){
 		  
-		potCommun.AjoutTextCommG("\n Tour de l'IA "+joueurCourant.getNomJoueur());
+		potCommun.AjoutTextCommG("\n Tour de l'IA "+joueurCourant.getNomJoueur()+"\n");
 		
 		  String mot = CreerNouveauMotIA.creerNouveauMotIA();
 		  if (mot != null) {
